@@ -6,7 +6,7 @@ env.allowLocalModels = false;
 // Use the Singleton pattern to enable lazy construction of the pipeline.
 class PipelineSingleton {
   static task = "token-classification";
-  static model = "Xenova/bert-base-multilingual-cased-ner-hrl";
+  static model = "Xenova/bert-base-NER-uncased";
   static instance = null;
 
   static async getInstance(progress_callback = null) {

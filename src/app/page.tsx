@@ -27,8 +27,9 @@ export default function Upload() {
     let anonymizedText = deferredReferenceText;
     const callback = (documents: NER[]) => {
       for (let namedEntity of documents[0]) {
-        anonymizedText = anonymizedText.replace(
-          namedEntity.word,
+        const re = new RegExp(namedEntity.word, "ig");
+        anonymizedText = anonymizedText.replaceAll(
+          re,
           "[" + namedEntity.entity + "]"
         );
       }
