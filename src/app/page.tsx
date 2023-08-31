@@ -18,7 +18,7 @@ export default function Upload() {
     setLoading(true);
     const timer = setTimeout(() => {
       setDeferredReferenceText(referenceText);
-    }, 500);
+    }, 200);
     return () => clearTimeout(timer);
   }, [referenceText]);
 
@@ -45,12 +45,17 @@ export default function Upload() {
         <h1 className="text-5xl font-bold mb-2 text-left">
           Client side anonymization
         </h1>
-        <h2 className="text-2xl mb-10 mt-2">
+        <h2 className="text-2xl mt-4">
           This is a quick proof-of-concept for anonymizing text on the client
           side. Currently it only means to demonstrate that we can efficiently
           run transformers in the browser to preprocess text. Once you click the
-          button, the model will be downloaded and the named entities replaced
-          by NER tags.
+          button, the model will be downloaded and initialized.
+        </h2>
+        <h2 className="text-2xl mb-10 mt-4">
+          The transformer runs in a webworker, so in an actual application the
+          model could be loaded in the background. In a data donation
+          application, the model would then already be ready by the time the
+          user imported their data.
         </h2>
       </div>
 
